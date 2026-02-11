@@ -24,6 +24,20 @@ const RestaurantMenu = () => {
         (c) => c?.card?.card?.itemCards,
       )?.card?.card?.itemCards || [];
 
+  const categories = resInfo?.cards
+    ?.find((card) =>
+      card?.groupedCard?.cardGroupMap?.REGULAR?.cards?.some(
+        (c) => c?.card?.card?.itemCards,
+      ),
+    )
+    ?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
+      (c) =>
+        c.card?.card?.["@type"] ===
+        "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory",
+    );
+
+  console.log("first", categories);
+
   if (!itemCards.length) return <Shimmer />;
 
   const { name, cuisines, avgRatingString, costForTwoMessage } = info;
