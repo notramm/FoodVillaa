@@ -2,7 +2,7 @@ import { IMG_URL } from '../utils/contants';
 
 const ItemList = ({ items }) => {
   return (
-    <div className="divide-y divide-gray-200">
+    <div className="px-6 pb-4 pt-2 starting:blur-xs starting:opacity-0 starting:-translate-y-1 [details:not([open])_&]:opacity-20 [details:not([open])_&]:-translate-y-1 [details:not([open])_&]:blur-xs blur-none translate-y-0 opacity-100 transition-all duration-500">
       {items.map((item) => (
         <div
           key={item.card.info.id}
@@ -23,7 +23,7 @@ const ItemList = ({ items }) => {
           </div>
 
           {/* Image & Add Button */}
-          <div className="relative w-3/12 min-w-30">
+          <div className="relative w-3/12 min-w-30 text-sm text-zinc-500 leading-relaxed">
             {item.card.info.imageId && (
               <img
                 src={IMG_URL + item.card.info.imageId}
@@ -31,7 +31,7 @@ const ItemList = ({ items }) => {
                 className="w-full h-24 object-cover rounded-xl shadow-sm"
               />
             )}
-            <div className="absolute -bottom-2 left-1/2 -translate-x-1/2">
+            <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 text-sm text-zinc-500 leading-relaxed">
               <button className="px-8 py-2 bg-white text-green-600 font-bold text-sm rounded-lg shadow-md border border-gray-200 hover:bg-gray-50 hover:shadow-lg transition-all active:scale-95 uppercase">
                 Add
               </button>

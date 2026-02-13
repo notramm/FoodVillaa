@@ -34,7 +34,7 @@ const RestaurantCategory = ({ data, showItems, setShowIndex, dummy }) => {
           </span>
         </div>        {/* Accordion Body */}
         {showItems && (
-          <div className="border-t border-gray-100 bg-white p-4 animate-fadeIn">
+          <div className="border-t border-gray-100 bg-white  leading-relaxed p-4 animate-fadeIn">
             <ItemList items={data.itemCards} dummy={dummy} />
           </div>
         )}
