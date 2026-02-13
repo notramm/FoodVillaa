@@ -6,16 +6,16 @@ const RestaurantCategory = ({ data, showItems, setShowIndex, dummy }) => {
   };
 
   return (
-    <div className="w-full flex justify-center px-4 sm:px-0">
+    <div className="w-full m-14 p-10 flex justify-center px-4 sm:px-0">
       {/* Accordion Container */}
-      <div className="w-full m-8 my-3 bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden transition-all duration-300">
+      <div className="w-full m-8 my-8 bg-white border border-gray-200 rounded-xl shadow-2xl overflow-hidden transition-all duration-300">
         
         {/* Accordion Header */}
         <div
-          className="flex justify-between items-center p-5 cursor-pointer hover:bg-gray-50 transition-colors duration-200"
+          className="flex justify-between items-center my-4 p-5 cursor-pointer hover:bg-gray-50 shadow-2xl transition-colors duration-200"
           onClick={handleClick}
         >
-          <span className=" p-7 m-5 font-bold text-gray-800 text-lg">
+          <span className=" m-5 font-bold text-gray-800 text-lg p-16">
             {data.title} 
             <span className="ml-2 text-sm text-gray-400 font-medium">
               ({data.itemCards.length})
