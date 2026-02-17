@@ -47,46 +47,47 @@ const RestaurantMenu = () => {
   const { name, cuisines, avgRatingString, costForTwoMessage } = info;
 
   return (
-    <div className="min-h-screen flex flex-col items-center ">
-      <div className=" w-full max-w-225 mx-auto p-8 font-sans bg-linear-to-br from-[#f5f7fa] to-[#c3cfe2] rounded-[20px] shadow-[0_10px_40px_rgba(0,0,0,0.1)] min-h-screen text-center ">
-        {/* Header */}
-        <div className="text-center mb-8 pb-6 border-b-[3px] border-white/50">
-          <h1 className="text-5xl font-extrabold uppercase tracking-[2px] mb-2 bg-linear-to-br from-[#667eea] to-[#764ba2] bg-clip-text text-transparent">
+    <div className="min-h-screen bg-[#f1f5f9] flex flex-col items-center py-12 px-4">
+      <div className="w-full max-w-4xl mx-auto p-6 md:p-10 bg-white rounded-[32px] shadow-2xl">
+        
+        {/* Header Section */}
+        <div className="text-center mb-10 pb-8 border-b-2 border-gray-50">
+          <h1 className="text-4xl md:text-6xl font-black uppercase tracking-tight mb-4 bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
             {name}
           </h1>
-          <p className="text-lg italic text-gray-500">{cuisines?.join(", ")}</p>
+          <p className="text-lg text-gray-500 font-medium italic">
+            {cuisines?.join(" • ")}
+          </p>
         </div>
 
-        {/* Stats */}
-        <ul className="flex justify-center gap-8 list-none p-6 mb-8 bg-white rounded-[15px] shadow-[0_4px_15px_rgba(0,0,0,0.08)]">
-          {/* Rating */}
-          <li className="text-lg font-semibold text-gray-700 px-6 py-2 rounded-[10px] bg-linear-to-br from-[#ffeaa7] to-[#fdcb6e] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_6px_20px_rgba(0,0,0,0.15)]">
-            <span className="text-xl font-bold">{avgRatingString}</span> ⭐
-          </li>
+        {/* Stats Cards */}
+        <div className="flex justify-center gap-4 md:gap-8 mb-12">
+          <div className="flex items-center gap-2 px-6 py-3 rounded-2xl bg-amber-50 border border-amber-100 shadow-sm transition-transform hover:-translate-y-1">
+            <span className="text-xl font-bold text-amber-700">{avgRatingString}</span>
+            <span className="text-amber-500 text-lg">⭐</span>
+          </div>
 
-          {/* Cost */}
-          <li className="text-lg font-semibold text-white px-6 py-2 rounded-[10px] bg-linear-to-br from-[#a8e6cf] to-[#56ab91] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_6px_20px_rgba(0,0,0,0.15)]">
-            {costForTwoMessage}
-          </li>
-        </ul>
+          <div className="px-6 py-3 rounded-2xl bg-emerald-50 border border-emerald-100 shadow-sm transition-transform hover:-translate-y-1">
+            <span className="text-lg font-bold text-emerald-700">{costForTwoMessage}</span>
+          </div>
+        </div>
 
-        {/* Menu Title */}
-        <h2 className="text-3xl font-bold text-gray-800 text-center relative pb-2 mb-6">
-          Menu
-          <span className="absolute left-1/2 -translate-x-1/2 bottom-0 w-20 h-1 bg-linear-to-r from-[#667eea] to-[#764ba2] rounded"></span>
-        </h2>
-        {/* {Accordion} */}
-        {categories.map((category, index) => {
-          return (
+        {/* Menu Section */}
+        <div className="relative mb-8">
+          <h2 className="text-3xl font-black text-gray-800 text-center">Menu</h2>
+          <div className="w-16 h-1.5 bg-gradient-to-r from-indigo-600 to-purple-600 mx-auto mt-2 rounded-full"></div>
+        </div>
+
+        {/* Categories (Accordions) */}
+        <div className="space-y-4">
+          {categories.map((category, index) => (
             <RestaurantCategory
-              key={category?.card?.card.title}
-              data={category?.card?.card}
-              showItems={index === showIndex ? true : false}
-              setShowIndex={() => setShowIndex((prev) => (prev === index ? null : index))}
-              dummy={dummy}
+              key={category?.card?.card.title}              data={category?.card?.card}
+              showItems={index === showIndex}
+              setShowIndex={() => setShowIndex(showIndex === index ? null : index)}
             />
-          );
-        })}
+          ))}
+        </div>
       </div>
     </div>
   );

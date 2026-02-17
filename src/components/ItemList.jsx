@@ -1,38 +1,46 @@
-import { IMG_URL } from '../utils/contants';
+import { IMG_URL } from "../utils/contants";
 
 const ItemList = ({ items }) => {
   return (
-    <div className="px-6 pb-4 pt-2 starting:blur-xs starting:opacity-0 starting:-translate-y-1 [details:not([open])_&]:opacity-20 [details:not([open])_&]:-translate-y-1 [details:not([open])_&]:blur-xs blur-none translate-y-0 opacity-100 transition-all duration-500">
+    <div className="flex flex-col px-2">
       {items.map((item) => (
         <div
           key={item.card.info.id}
-          className="flex justify-between items-start py-6 gap-4 text-left transition-all"
+          className="flex justify-between items-center gap-6 py-8 border-b border-gray-100 last:border-none transition-all hover:bg-gray-50/50 rounded-lg px-4"
         >
-          {/* Item Details */}
-          <div className="w-9/12">
-            <div className="flex flex-col">
-              <span className="text-lg font-semibold text-gray-800">
+          {/* Left: Item Details */}
+          <div className="flex-1 text-left">
+            <div className="space-y-1">
+              <h3 className="text-lg font-bold text-gray-800 leading-tight">
                 {item.card.info.name}
-              </span>
-              <span className="text-base font-medium text-gray-700">                ₹{item.card.info.price ? item.card.info.price / 100 : item.card.info.defaultPrice / 100}
-              </span>
+              </h3>
+              <p className="text-base font-semibold text-gray-700">
+                ₹{item.card.info.price ? item.card.info.price / 100 : item.card.info.defaultPrice / 100}
+              </p>
             </div>
-            <p className="mt-2 text-sm text-gray-500 leading-relaxed line-clamp-2">
+            <p className="mt-3 text-sm text-gray-500 leading-relaxed line-clamp-2 italic">
               {item.card.info.description}
             </p>
           </div>
 
-          {/* Image & Add Button */}
-          <div className="relative w-3/12 min-w-30 text-sm text-zinc-500 leading-relaxed">
-            {item.card.info.imageId && (
-              <img
-                src={IMG_URL + item.card.info.imageId}
-                alt={item.card.info.name}
-                className="w-full h-24 object-cover rounded-xl shadow-sm"
-              />
-            )}
-            <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 text-sm text-zinc-500 leading-relaxed">
-              <button className="px-8 py-2 bg-white text-green-600 font-bold text-sm rounded-lg shadow-md border border-gray-200 hover:bg-gray-50 hover:shadow-lg transition-all active:scale-95 uppercase">
+          {/* Right: Image & Add Button */}
+          <div className="relative flex-shrink-0">
+            <div className="w-32 h-32 md:w-36 md:h-36">
+              {item.card.info.imageId ? (
+                <img
+                  src={IMG_URL + item.card.info.imageId}
+                  alt={item.card.info.name}                  className="w-full h-full object-cover rounded-2xl shadow-md border border-gray-100"
+                />
+              ) : (
+                <div className="w-full h-full bg-gray-100 rounded-2xl border border-dashed border-gray-300 flex items-center justify-center text-gray-400 text-xs text-center p-2">
+                  No Image
+                </div>
+              )}
+            </div>
+            
+            {/* Add Button - Positioned on top of image bottom */}
+            <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-24 ">
+              <button className="w-full py-2 bg-white text-green-600 font-extrabold text-sm cursor-pointer rounded-lg shadow-lg border border-gray-200 hover:bg-green-50 hover:border-green-300 transition-all active:scale-90 uppercase tracking-wider">
                 Add
               </button>
             </div>
