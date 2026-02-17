@@ -8,7 +8,7 @@ const RestaurantCategory = ({ data, showItems, setShowIndex, dummy }) => {
     return (
     <div className="w-full flex justify-center px-4">
       {/* Main Accordion Card */}
-      <div className="w-full max-w-3xl my-3 bg-white border border-gray-100 rounded-[24px] shadow-[0_4px_20px_-5px_rgba(0,0,0,0.05)] hover:shadow-[0_8px_30px_-10px_rgba(0,0,0,0.12)] transition-all duration-300 overflow-hidden">
+      <div className="w-full max-w-3xl my-3 bg-white border border-gray-100 rounded-3xl shadow-[0_4px_20px_-5px_rgba(0,0,0,0.05)] hover:shadow-[0_8px_30px_-10px_rgba(0,0,0,0.12)] transition-all duration-300 overflow-hidden">
         
         {/* Header Section */}
         <div
@@ -43,7 +43,7 @@ const RestaurantCategory = ({ data, showItems, setShowIndex, dummy }) => {
 
         {/* Body Section (ItemList) */}
         <div className={`transition-all duration-500 ease-in-out ${
-          showItems ? "max-h-[5000px] opacity-100" : "max-h-0 opacity-0"
+          showItems ? "max-h-1250 opacity-100" : "max-h-0 opacity-0"
         }`}>
           <div className="border-t border-gray-50 px-4 pb-4 bg-white animate-fadeIn">
             <ItemList items={data.itemCards} dummy={dummy} />          </div>

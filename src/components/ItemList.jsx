@@ -24,7 +24,7 @@ const ItemList = ({ items }) => {
           </div>
 
           {/* Right: Image & Add Button */}
-          <div className="relative flex-shrink-0">
+          <div className="relative shrink-0">
             <div className="w-32 h-32 md:w-36 md:h-36">
               {item.card.info.imageId ? (
                 <img

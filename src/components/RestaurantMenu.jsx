@@ -48,11 +48,11 @@ const RestaurantMenu = () => {
 
   return (
     <div className="min-h-screen bg-[#f1f5f9] flex flex-col items-center py-12 px-4">
-      <div className="w-full max-w-4xl mx-auto p-6 md:p-10 bg-white rounded-[32px] shadow-2xl">
+      <div className="w-full max-w-4xl mx-auto p-6 md:p-10 bg-white rounded-4xl shadow-2xl">
         
         {/* Header Section */}
         <div className="text-center mb-10 pb-8 border-b-2 border-gray-50">
-          <h1 className="text-4xl md:text-6xl font-black uppercase tracking-tight mb-4 bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+          <h1 className="text-4xl md:text-6xl font-black uppercase tracking-tight mb-4 bg-linear-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
             {name}
           </h1>
           <p className="text-lg text-gray-500 font-medium italic">
@@ -75,7 +75,7 @@ const RestaurantMenu = () => {
         {/* Menu Section */}
         <div className="relative mb-8">
           <h2 className="text-3xl font-black text-gray-800 text-center">Menu</h2>
-          <div className="w-16 h-1.5 bg-gradient-to-r from-indigo-600 to-purple-600 mx-auto mt-2 rounded-full"></div>
+          <div className="w-16 h-1.5 bg-linear-to-r from-indigo-600 to-purple-600 mx-auto mt-2 rounded-full"></div>
         </div>
 
         {/* Categories (Accordions) */}
