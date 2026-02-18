@@ -9,6 +9,7 @@ import { RouterProvider } from "react-router/dom";
 import Body from "./components/Body.jsx";
 import Error from "./components/Error.jsx";
 import RestaurantMenu from "./components/RestaurantMenu.jsx";
+import Cart from "./components/Cart.jsx";
 
 const Contact = lazy(() => import("./components/Contact.jsx"));
 
@@ -29,6 +30,7 @@ const appRouter = createBrowserRouter([
         ),
       },
       { path: "/restaurants/:resId", element: <RestaurantMenu /> },
+      { path: "/cart", element: <Cart/>}
     ],
   },
 ]);

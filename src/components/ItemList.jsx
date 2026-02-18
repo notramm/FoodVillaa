@@ -1,6 +1,13 @@
+import { useDispatch } from "react-redux";
 import { IMG_URL } from "../utils/contants";
+import { addItem } from "../utils/cartSlice";
 
 const ItemList = ({ items }) => {
+  const dispatch = useDispatch();
+  const handleAddItem = (item) => {
+    //Dispatch an Action
+    dispatch(addItem(item));
+  }
   return (
     <div className="flex flex-col px-2">
       {items.map((item) => (
@@ -40,7 +47,8 @@ const ItemList = ({ items }) => {
             
             {/* Add Button - Positioned on top of image bottom */}
             <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-24 ">
-              <button className="w-full py-2 bg-white text-green-600 font-extrabold text-sm cursor-pointer rounded-lg shadow-lg border border-gray-200 hover:bg-green-50 hover:border-green-300 transition-all active:scale-90 uppercase tracking-wider">
+              <button className="w-full py-2 bg-white text-green-600 font-extrabold text-sm cursor-pointer rounded-lg shadow-lg border border-gray-200 hover:bg-green-50 hover:border-green-300 transition-all active:scale-90 uppercase tracking-wider" 
+              onClick={()=> handleAddItem(item)}>
                 Add
               </button>
             </div>

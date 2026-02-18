@@ -1,9 +1,11 @@
 import { LOGO_URL } from "../utils/contants";
 import { useState } from "react";
+import { useSelector } from "react-redux";
 import { Link } from "react-router";
 
 const Header = () => {
   const [btnName, setBtnName] = useState("Login");
+  const cartItems = useSelector((store) => store.cart.item);
 
   return (
     <div className="header">
@@ -16,8 +18,8 @@ const Header = () => {
           <Link to='/'>Home</Link>
           </li>
           <li><Link to='/about'>About Us</Link></li>
-          <Link to='/contact'>Contact</Link>
-          <Link to='/cart'>Cart</Link>
+          <li><Link to='/contact'>Contact</Link></li>
+          <li><Link to='/cart'>Cart ({cartItems.length} items)</Link></li>
           <button
             className="login"
             onClick={() => {
